@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CPACC - OpenDoorAccessibilityLab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header>
+        <h1>CPACC Accessibility Lab</h1>
+        <p>Practice and reinforce CPACC concepts through screen-reader-first learning activities.</p><details id="getting-started-details" open>
+            <summary id="getting-started-summary">Getting Started and Keyboard Tips</summary>
+            <p>Press Enter or Space to expand this section. Press Escape to collapse it and return focus to this button.</p>
+
+            <h2>Getting Started and Keyboard Tips</h2>
+
+            <h3>Screen reader mode</h3>
+            <ul>
+                <li>JAWS users: Turn off Virtual Cursor with JAWS Key + Z.</li>
+                <li>NVDA and Narrator users: Use Focus Mode.</li>
+                <li>The Lab is optimized for keyboard interaction while the screen reader is in Focus Mode or Browse Mode is off.</li>
+            </ul>
+
+            <h3>Starting a session</h3>
+            <ol>
+                <li>Select a learning mode.</li>
+                <li>Select a CPACC domain.</li>
+                <li>Select the number of questions, or Sprint time when using Sprint mode.</li>
+                <li>Activate Start Lab Session.</li>
+            </ol>
+
+            <h3>Answering questions</h3>
+            <ul>
+                <li>The question is read automatically.</li>
+                <li>Press Q to repeat the question.</li>
+                <li>Press A to read the answer choices.</li>
+                <li>Use 1 through 4, Tab, or form-field navigation to move through answer buttons.</li>
+                <li>Activate an answer with Space or Enter.</li>
+                <li>After answering, Continue To Next Question receives focus.</li>
+                <li>Press C, Space, or Enter to continue.</li>
+            </ul>
+
+            <h3>Reviewing missed questions</h3>
+            <ul>
+                <li>After a completed session, activate Review Missed Questions.</li>
+                <li>Alt+M opens Review Missed Questions efficiently when Focus Mode is active or Browse Mode is off.</li>
+                <li>Each review item is announced automatically.</li>
+                <li>Activate Next Missed Question to continue.</li>
+                <li>On the final review item, activate Finish Review.</li>
+                <li>After review is complete, Start New Session receives focus.</li>
+            </ul>
+
+            <h3>Optional shortcuts</h3>
+            <ul>
+                <li>Alt+S - Start Lab Session</li>
+                <li>Alt+M - Review Missed Questions</li>
+                <li>Alt+T - Open Statistics</li>
+                <li>Alt+H - Return Home</li>
+                <li>Q - Repeat the current question</li>
+                <li>A - Read answer choices</li>
+                <li>C - Continue after answering</li>
+                <li>N - Skip question</li>
+                <li>R - Read remaining Sprint time</li>
+                <li>Escape - Collapse this Getting Started section when it is expanded</li>
+            </ul>
+        </details>
+    </header>
+
+    <main id="main" tabindex="-1">
+        <section class="panel" aria-labelledby="setup-heading" id="setup-panel">
+            <h2 id="setup-heading">Lab Home</h2>
+
+            <fieldset>
+                <legend>Choose A Learning Mode</legend>
+                <label><input type="radio" name="mode" value="reinforce" checked> Reinforce</label>
+                <label><input type="radio" name="mode" value="practice"> Practice</label>
+                <label><input type="radio" name="mode" value="challenge"> Challenge</label><label><input type="radio" name="mode" value="sprint"> Sprint</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Choose Domain</legend>
+                <label><input type="radio" name="domain" value="domain1" checked> Domain 1 - Disability Models and Disability Experience</label>
+                <label><input type="radio" name="domain" value="domain2"> Domain 2 - Disability Demographics and Diversity</label>
+                <label><input type="radio" name="domain" value="domain3"> Domain 3 - Accessibility and Universal Design</label>
+                <label><input type="radio" name="domain" value="domain4"> Domain 4 - Assistive Technology</label>
+                <label><input type="radio" name="domain" value="domain5"> Domain 5 - Laws, Standards and Organizational Impact</label>
+            </fieldset>
+
+            <label for="practice-length">Number of questions</label>
+            <select id="practice-length" aria-describedby="practice-length-note">
+                <option value="5">5 questions</option>
+                <option value="10">10 questions</option>
+                <option value="20" selected>20 questions</option>
+                <option value="30">30 questions</option>
+                <option value="50">50 questions</option>
+                <option value="all">All available questions</option>
+            </select>
+            <p id="practice-length-note" class="meta">Used for Reinforce, Practice, and Challenge. Unavailable during Sprint.</p>
+
+            <label for="difficulty-filter">Difficulty</label>
+            <select id="difficulty-filter">
+                <option value="all" selected>All difficulties</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option><option value="mixed">Mixed</option>
+            </select>
+<label for="sprint-length">Sprint Time</label>
+            <select id="sprint-length" aria-describedby="sprint-length-note">
+                <option value="60">1 Minute</option>
+                <option value="180">3 Minutes</option>
+                <option value="300" selected>5 Minutes</option>
+                <option value="600">10 Minutes</option>
+                <option value="900">15 Minutes</option>
+            </select>
+            <p id="sprint-length-note" class="meta">Used for Sprint only. Unavailable for other modes.</p>
+
+            <p id="saved-challenges-summary" class="status">No saved challenges pending export.</p>
+            <button type="button" id="start-button" accesskey="s">Start Lab Session</button>
+            <button type="button" id="resume-button" accesskey="e">Resume Current Session</button>
+            <button type="button" id="statistics-button" accesskey="t">Open Statistics</button>
+        </section>
+
+        <section class="panel" aria-labelledby="question-heading" id="question-panel">
+            <h2 id="question-heading" tabindex="-1">Question</h2>
+            <p id="question-text" tabindex="-1">Choose a mode and press Start Lab Session to begin.</p>
+            <p id="location-text" class="meta">Domain 1 - Disability Models and Disability Experience. Reinforce mode.</p>
+            <p id="counter" class="meta">Question 0 of 0. Score 0 correct and 0 incorrect.</p>
+
+            <h3 id="answers-heading" tabindex="-1">Answer Choices</h3>
+            <ol id="choices" class="choice-list" aria-labelledby="answers-heading"></ol>
+
+            <p id="feedback" class="status" role="status" aria-live="polite"></p>
+            <p id="advance-status" class="status" aria-live="polite"></p>
+            <p id="sprint-announcer" class="sr-only" role="alert" aria-live="assertive" aria-atomic="true"></p>
+
+            <button type="button" id="next-question-button" aria-disabled="true" accesskey="c">Continue unavailable until answer is selected</button>
+            <button type="button" id="skip-button" accesskey="n">Skip Question</button>
+            <h2 id="review-heading" tabindex="-1" hidden>Review Missed Questions</h2>
+            <div id="review-content" class="review-content" tabindex="-1" role="region" aria-labelledby="review-heading" hidden></div>
+            <button type="button" id="review-missed-button" accesskey="m" hidden>Review Missed Questions</button>
+            <button type="button" id="previous-missed-button" hidden>Previous Missed Question</button>
+            <button type="button" id="next-missed-button" hidden>Next Missed Question</button>
+            <div id="review-challenge-panel" hidden></div>
+            <p id="review-challenge-status" class="status" role="status" aria-live="polite"></p>
+            <button type="button" id="export-challenges-button" hidden>Export Challenges for Instructor Review</button>
+            <button type="button" id="return-results-button" hidden>Start New Session</button>
+            <button type="button" id="review-statistics-button" hidden>Open Statistics</button>
+            <div id="review-complete-summary" hidden></div>
+            <div id="review-complete-actions" hidden>
+                <button type="button" id="review-start-button">Start New Session</button>
+                <button type="button" id="review-export-challenges-button" hidden>Export Saved Challenges</button>
+                <button type="button" id="review-clear-challenges-button" hidden>Clear Saved Challenges</button>
+                <button type="button" id="review-open-statistics-button">Open Statistics</button>
+                <button type="button" id="review-return-home-button">Return Home</button>
+            </div>
+            <button type="button" id="return-home-button" accesskey="h">Return Home</button>
+        </section>
+
+        <section class="panel" aria-labelledby="statistics-heading" id="statistics-panel">
+            <h2 id="statistics-heading" tabindex="-1">Statistics</h2>
+            <p id="statistics-summary">No questions answered yet.</p>
+            <ul id="domain-statistics"></ul>
+            <button type="button" id="reset-statistics-button">Reset Statistics</button>
+            <button type="button" id="statistics-home-button">Return Home</button>
+        </section>
+
+            <section id="challenge-dialog" class="panel challenge-dialog" role="dialog" aria-modal="true" aria-labelledby="challenge-dialog-heading" aria-describedby="challenge-dialog-intro challenge-dialog-status" hidden>
+            <h2 id="challenge-dialog-heading" tabindex="-1">Challenge This Answer</h2>
+            <p id="challenge-dialog-intro">Use this form if you believe another answer may also be correct. Save Challenge saves and continues. Cancel Challenge or Escape cancels and continues.</p>
+
+            <label for="challenge-proposed-answer">Proposed answer</label>
+            <input id="challenge-proposed-answer" type="text">
+
+            <label for="challenge-reasoning">Reasoning for instructor review</label>
+            <textarea id="challenge-reasoning" rows="4"></textarea>
+
+            <p id="challenge-error-message" class="status" role="alert" hidden></p>
+            <p id="challenge-dialog-status" class="status" role="status" aria-live="polite"></p>
+
+            <button type="button" id="challenge-save-button">Save Challenge</button>
+            <button type="button" id="challenge-cancel-button">Cancel Challenge</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Open Door Design local prototype.</p>
+    </footer>
+
+    <script src="cpacc-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
