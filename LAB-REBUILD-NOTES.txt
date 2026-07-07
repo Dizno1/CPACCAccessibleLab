@@ -1,0 +1,19 @@
+CPACC Accessibility Lab rebuild note
+
+This version replaces the partial Lab question data with the completed course-derived question bank.
+
+Question totals:
+Domain 1: 120
+Domain 2: 132
+Domain 3: 84
+Domain 4: 60
+Domain 5: 72
+Total: 468
+
+Mode mapping:
+Recall and Understanding questions: Reinforce
+Application and Scenario questions: Practice
+Analysis and CPACC Exam Style questions: Challenge
+Sprint mode uses all questions in the selected domain because the existing app ignores mode filtering for Sprint.
+
+Domains 3, 4, and 5 are no longer marked comingSoon.
